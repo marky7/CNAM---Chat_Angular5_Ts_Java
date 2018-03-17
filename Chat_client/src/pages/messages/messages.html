@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title style="text-align:center;">Messages de XXX</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<br>
+<br>
+<br>
+
+<div style="overflow:auto; height:calc(65% - 80px);">
+<ion-card ngFor="let message for messages">
+  <ion-card-header>
+    <h6>XXX</h6>
+    <p>message.content1</p>
+    <p>Date</p>
+  </ion-card-header>
+
+  <ion-card-content>
+    <!-- Add card content here! -->
+  </ion-card-content>
+</ion-card>
+</div>
+
+<ion-item>
+  <ion-label floating>Ecrivez votre message ici</ion-label>
+  <ion-input type="text"></ion-input>
+</ion-item>
+<div style="width:100%;">
+<button style=" float:right;" ion-button large>Envoyer Message</button>
+</div>
