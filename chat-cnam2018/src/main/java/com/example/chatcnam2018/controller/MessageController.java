@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequestMapping("/chat-cnam-api")
 public class MessageController {
 
-	@Autowired
+	@Autowired // Cablé automatiquement - Crée les méthodes en les recherchant chez hibernate
 	MessageRepository messageRepository;
 	
 	@Autowired

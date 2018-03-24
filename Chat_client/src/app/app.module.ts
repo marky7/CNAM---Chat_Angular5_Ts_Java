@@ -5,12 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {UIRouterModule} from "@uirouter/angular";
 import {uiRouterConfigFn} from "../configs/router.config";
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
 import { ConversationsPage } from '../pages/conversations/conversations';
 import { MessagesPage } from '../pages/messages/messages';
+
 
 
 
@@ -54,7 +56,9 @@ const appUIRoutes = [
         states: appUIRoutes,
         useHash: true,
         config: uiRouterConfigFn
-      })
+      }),
+      // import HttpClientModule after BrowserModule.
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

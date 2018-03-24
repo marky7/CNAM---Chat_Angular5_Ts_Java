@@ -37,7 +37,7 @@ public class Message implements Serializable {
     private Long destinataireId;
     
     @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)	// modifier le type date pour correspondre au type mysql
     @CreatedDate
     private Date createdAt;
 
