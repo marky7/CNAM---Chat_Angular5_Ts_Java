@@ -20,7 +20,9 @@ export class UsersPage {
         // this.users = ...
       });
   }
-
-
-
 }
+
+// Pour importer un service dans un component :
+// Faire l'import du service
+// Le mettre dans le tableau des providers du component
+// L'ajouter dans le constructor
