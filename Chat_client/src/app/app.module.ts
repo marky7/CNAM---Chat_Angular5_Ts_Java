@@ -15,12 +15,14 @@ import { HomePage } from '../pages/home/home';
 import { UsersPage } from '../pages/users/users';
 import { ConversationsPage } from '../pages/conversations/conversations';
 import { MessagesPage } from '../pages/messages/messages';
+import { EnterIP } from '../pages/enterIP/enterIP';
 
 export const deepLinkConfig: DeepLinkConfig = {
     links: [
+        { component: EnterIP, name: "enterIP", segment: "enterIP"},
         { component: UsersPage, name: "users", segment: "users"},
         { component: ConversationsPage, name: "conversations", segment: "user/:userId/conversations" },
-        { component: MessagesPage, name: "messages", segment: "messages" }
+        { component: MessagesPage, name: "messages", segment: "user/:userId/conversation/:receiverId" }
     ]
 };
 
@@ -30,7 +32,8 @@ export const deepLinkConfig: DeepLinkConfig = {
     HomePage,
     UsersPage,
     ConversationsPage,
-    MessagesPage
+    MessagesPage,
+    EnterIP
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ export const deepLinkConfig: DeepLinkConfig = {
     HomePage,
     UsersPage,
     ConversationsPage,
-    MessagesPage
+    MessagesPage,
+    EnterIP
   ],
   providers: [
     StatusBar,

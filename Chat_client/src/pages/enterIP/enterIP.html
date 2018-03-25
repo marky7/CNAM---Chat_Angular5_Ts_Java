@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title style="text-align:center;">Rentrez l'adresse IP du serveur</ion-title>
+  </ion-navbar>
+</ion-header>
+<br>
+<br>
+<br>
+
+<ion-item>
+  <ion-label floating>Ecrivez l'adresse IP du serveur ici</ion-label>
+  <ion-input [(ngModel)]="currentIP" type="text"></ion-input>
+</ion-item>
+<div style="width:100%;">
+<button (click)="setCurrentServerIp()" style=" float:right;" ion-button large>Enregister Adresse</button>
+</div>

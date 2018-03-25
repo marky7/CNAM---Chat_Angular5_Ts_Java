@@ -8,7 +8,8 @@ import { ViewChild } from '@angular/core'
 })
 export class HomePage {
   @ViewChild('myNav') nav: NavController
-  public rootPage: any = 'users';
+  // Set default page here
+  public rootPage: any = 'enterIP';
 
   constructor(public navCtrl: NavController) {}
 

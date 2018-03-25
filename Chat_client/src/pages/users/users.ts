@@ -15,25 +15,24 @@ export class UsersPage {
 
   users:any;
   nav:NavController;
-  users:string[];
 
   constructor(public navCtrl: NavController,private usersService: UsersService) {
     this.nav = navCtrl;
-    this.users = ['Invité','Aristide','Florian','MrVielle'];
+    //this.users = ['Invité','Aristide','Florian','MrVielle'];
     this.usersService = usersService;
 
     usersService.getUsers().subscribe((data) => {
         console.log(data);
         this.users = data;
       },(error) => {
-        console.log(ErrorHandler);
+        console.log(error);
       });
   }
 
   goToConversations(user:any) {
     console.log(user);
     this.nav.push('conversations', {
-      userId: "Aristide"
+      userId: user.id
     });
   }
 
