@@ -11,7 +11,7 @@
     <ion-thumbnail item-start>
       <img src="assets/imgs/default_user.png">
     </ion-thumbnail>
-    <h2>{{user}}</h2>
-    <button uiSref="conversations" ion-button clear item-end>Se connecter</button>
+    <h2>{{user.prenom}} {{user.nom}}</h2>
+    <button uiSref="conversations" [uiParams]="{ userId: user.id }" ion-button clear item-end>Se connecter</button>
   </ion-item>
 </ion-list>

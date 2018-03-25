@@ -4,11 +4,11 @@ import com.example.chatcnam2018.exception.ResourceNotFoundException;
 import com.example.chatcnam2018.model.User;
 import com.example.chatcnam2018.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8100")
 @RestController
 @RequestMapping("/chat-cnam-api")
 public class UserController {
@@ -31,5 +31,4 @@ public class UserController {
 	    return userRepository.findById(userId)
 	            .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
 	}
-	
 }

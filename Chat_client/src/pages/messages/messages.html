@@ -1,19 +1,18 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title style="text-align:center;">Messages de XXX</ion-title>
+    <ion-title style="text-align:center;">{{contact.prenom}}</ion-title>
   </ion-navbar>
 </ion-header>
-
 <br>
 <br>
 <br>
 
 <div style="overflow:auto; height:calc(65% - 80px);">
-<ion-card ngFor="let message for messages">
+<ion-card *ngFor="let message of messages">
   <ion-card-header>
-    <h6>XXX</h6>
-    <p>message.content1</p>
-    <p>Date</p>
+    <h6>{{message.sender}}</h6>
+    <p>{{message.content}}</p>
+    <p>{{message.createdA}}</p>
   </ion-card-header>
 
   <ion-card-content>

@@ -10,7 +10,6 @@ import javax.validation.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.util.Date;
-import com.example.chatcnam2018.model.User;
 
 @Entity
 @Table(name = "message")
@@ -28,16 +27,16 @@ public class Message implements Serializable {
     private Long id;
 	
     @NotBlank
-    private String contenu;
+    private String content;
 
     @Digits(fraction = 0, integer = 6)
-    private Long envoyeurId;
+    private Long senderId;
     
     @Digits(fraction = 0, integer = 6)
-    private Long destinataireId;
-    
+    private Long receiverId;
+      
     @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)	// modifier le type date pour correspondre au type mysql
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date createdAt;
 
@@ -54,28 +53,28 @@ public class Message implements Serializable {
 		this.id = id;
 	}
 
-	public String getContenu() {
-		return contenu;
+	public String getContent() {
+		return content;
 	}
 
-	public void setContenu(String contenu) {
-		this.contenu = contenu;
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	public Long getSenderId() {
+		return senderId;
 	}
 
-	public Long getEnvoyeurId() {
-		return envoyeurId;
+	public void setSenderId(Long senderId) {
+		this.senderId = senderId;
 	}
 
-	public void setEnvoyeurId(Long envoyeurId) {
-		this.envoyeurId = envoyeurId;
+	public Long getReceiverId() {
+		return receiverId;
 	}
 
-	public Long getDestinataireId() {
-		return destinataireId;
-	}
-
-	public void setDestinataireId(Long destinataireId) {
-		this.destinataireId = destinataireId;
+	public void setReceiverId(Long receiverId) {
+		this.receiverId = receiverId;
 	}
 
 	public Date getCreatedAt() {

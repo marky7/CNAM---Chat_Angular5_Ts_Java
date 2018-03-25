@@ -1,19 +1,44 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { MessagesService } from './messages.service';
 
 @Component({
   selector: 'messages-page',
-  templateUrl: 'messages.html'
+  templateUrl: 'messages.html',
+  providers: [ MessagesService ],
 })
+
 export class MessagesPage {
 
-  public user:string;
-  public contacts:string[];
-  public messages:any[];
+  public userId: number;
+  public contact: any;
+  public messages: any[] = [];
 
-  constructor(public navCtrl: NavController) {
+
+  constructor(public navCtrl: NavController, private messagesService: MessagesService) {
+      this.contact = {id:"5", prenom:"Aristide", nom:"Koffi"}; // doit etre recupéré
+
+      messagesService.userId = 4;//
+      messagesService.contact = this.contact;//
+
+
+
+      messagesService.getMessagesOfConversation().subscribe((data) => {
+        console.log(data);
+          //this.messages = data;
+          for(var i = 0; i<data.length; i++){
+            var sender: string;
+
+            if(data[i].senderId == this.contact.id){
+                sender = this.contact.prenom;
+            }else{
+                sender = 'Moi';
+            }
+            this.messages.push({sender: sender, content: data[i].content, createdAt: data[i].createdAt });
+        }
+      });
       // Get from pathUrl
-      this.user = 'Florian';
+      /*this.user = 'Florian';
 
       // Get Florian contacts
       this.contacts = ['Invité','Aristide','MrVielle'];
@@ -36,7 +61,7 @@ export class MessagesPage {
           content: 'Ok ! Je vais faire un concours de Beach Volley, on se reparle plus tard.'
       }];
 
-
+*/
   }
 
 }

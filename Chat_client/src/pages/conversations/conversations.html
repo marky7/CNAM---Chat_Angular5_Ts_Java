@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title style="text-align:center;">Conversations de {{user}}</ion-title>
+    <ion-title style="text-align:center;">Mes contacts</ion-title>
   </ion-navbar>
 </ion-header>
 <br>
@@ -15,7 +15,7 @@
     <ion-thumbnail item-start>
       <img src="assets/imgs/default_user.png">
     </ion-thumbnail>
-    <h2>{{contact}}</h2>
-    <button uiSref="messages" ion-button clear item-end>Ouvrir</button>
+    <h2>{{contact.prenom}}</h2>
+    <button uiSref="messages" [uiParams]="{ userId: user.id, contact: contact }" ion-button clear item-end>Ouvrir</button>
   </ion-item>
 </ion-list>

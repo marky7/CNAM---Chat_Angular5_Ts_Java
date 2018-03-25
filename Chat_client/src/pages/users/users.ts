@@ -7,16 +7,16 @@ import { UsersService } from './users.service';
   templateUrl: 'users.html',
   providers: [ UsersService ],
 })
+
 export class UsersPage {
 
-  users:string[];
+  users:any;
 
-  constructor(public navCtrl: NavController,private usersService: UsersService) {
-    this.users = ['Invité','Aristide','Florian','MrVielle'];
+  constructor(public navCtrl: NavController, private usersService: UsersService) {
+    //this.users = ['Invité','Aristide','Florian','MrVielle'];
     usersService.getUsers().subscribe((data) => {
-        // Ce que tu veux faire des USERS ICI
-        console.log('Données Users récupérées ICI - Le lien est configurable dans le fichier users.service.ts');
         console.log(data);
+        this.users = data;
         // this.users = ...
       });
   }
