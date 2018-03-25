@@ -6,16 +6,12 @@
 <br>
 <br>
 <br>
-<!--p>
-  If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-</p-->
-
 <ion-list>
   <ion-item *ngFor="let contact of contacts;">
     <ion-thumbnail item-start>
       <img src="assets/imgs/default_user.png">
     </ion-thumbnail>
-    <h2>{{contact.prenom}}</h2>
-    <button uiSref="messages" [uiParams]="{ userId: user.id, contact: contact }" ion-button clear item-end>Ouvrir</button>
+    <h2>{{contact.prenom}} {{contact.nom}}</h2>
+    <button (click)="goToMessages(contact)" ion-button clear item-end>Ouvrir</button>
   </ion-item>
 </ion-list>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { UsersService } from './users.service';
 
+
 @Component({
   selector: 'users-page',
   templateUrl: 'users.html',
@@ -10,16 +11,32 @@ import { UsersService } from './users.service';
 
 export class UsersPage {
 
-  users:any;
+  public href: string = "";
 
-  constructor(public navCtrl: NavController, private usersService: UsersService) {
-    //this.users = ['Invité','Aristide','Florian','MrVielle'];
+  users:any;
+  nav:NavController;
+  users:string[];
+
+  constructor(public navCtrl: NavController,private usersService: UsersService) {
+    this.nav = navCtrl;
+    this.users = ['Invité','Aristide','Florian','MrVielle'];
+    this.usersService = usersService;
+
     usersService.getUsers().subscribe((data) => {
         console.log(data);
         this.users = data;
-        // this.users = ...
+      },(error) => {
+        console.log(ErrorHandler);
       });
   }
+
+  goToConversations(user:any) {
+    console.log(user);
+    this.nav.push('conversations', {
+      userId: "Aristide"
+    });
+  }
+
 }
 
 // Pour importer un service dans un component :
