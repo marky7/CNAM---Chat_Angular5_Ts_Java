@@ -4,10 +4,18 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class UsersService {
 
-  configUrl = 'http://localhost:8080/chat-cnam-api/users';
+  protocol = 'http://'
+  host = localStorage.getItem('currentIP');
+  port = ':8080/'
+  urlGetUsers = 'chat-cnam-api/users/';
   constructor(private http: HttpClient) {}
 
   getUsers() {
-    return this.http.get(this.configUrl);
+    return this.http.get(this.protocol + this.host + this.port + this.urlGetUsers);
   }
+
+  getUser(userId:number) {
+    return this.http.get(this.protocol + this.host + this.port + this.urlGetUsers + userId);
+  }
+
 }

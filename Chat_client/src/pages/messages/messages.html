@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title style="text-align:center;">{{contact.prenom}}</ion-title>
+    <ion-title style="text-align:center;">{{contact.prenom}} {{contact.nom}}</ion-title>
   </ion-navbar>
 </ion-header>
 <br>
@@ -23,8 +23,8 @@
 
 <ion-item>
   <ion-label floating>Ecrivez votre message ici</ion-label>
-  <ion-input type="text"></ion-input>
+  <ion-input [(ngModel)]="content" type="text"></ion-input>
 </ion-item>
 <div style="width:100%;">
-<button style=" float:right;" ion-button large>Envoyer Message</button>
+<button (click)="sendMessage()" style=" float:right;" ion-button large>Envoyer Message</button>
 </div>
