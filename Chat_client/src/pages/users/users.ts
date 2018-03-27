@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { UsersService } from './users.service';
 
 
@@ -16,17 +16,15 @@ export class UsersPage {
   users:any;
   nav:NavController;
 
-  constructor(public navCtrl: NavController,private usersService: UsersService) {
+  constructor(public navCtrl: NavController,private navParams:NavParams,private usersService: UsersService) {
     this.nav = navCtrl;
     //this.users = ['Invité','Aristide','Florian','MrVielle'];
-    this.usersService = usersService;
-
     usersService.getUsers().subscribe((data) => {
-        console.log(data);
-        this.users = data;
-      },(error) => {
-        console.log(error);
-      });
+      console.log(data);
+      this.users = data;
+    },(error) => {
+      console.log(error);
+    });
   }
 
   goToConversations(user:any) {

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export class ConversationsService {
 
   protocol = 'http://'
-  host = localStorage.getItem('currentIP') || 'localhost';
+  host = localStorage.getItem('currentIP');
   port = ':8080/'
   urlUsers = 'chat-cnam-api/users/';
 
