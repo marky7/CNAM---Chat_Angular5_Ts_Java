@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesService } from './messages.service';
 import { UsersService } from '../users/users.service';
+import { OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'messages-page',
@@ -9,7 +10,7 @@ import { UsersService } from '../users/users.service';
   providers: [ MessagesService, UsersService ],
 })
 
-export class MessagesPage {
+export class MessagesPage implements OnDestroy{
 
   public userId: number;
   public contactId:number;
@@ -78,6 +79,12 @@ export class MessagesPage {
       console.log(data);
     },(error) => {
     });;
+  }
+
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 
 
